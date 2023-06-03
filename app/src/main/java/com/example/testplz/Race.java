@@ -109,7 +109,7 @@ public class Race extends AppCompatActivity {
         });
 
         Random random = new Random();
-        int totalKm = random.nextInt(55) + 125;
+        int totalKm = random.nextInt(55) + 120;
 
         ImageView car1Image = findViewById(R.id.car1ImageProgressBar);
         ImageView car2Image = findViewById(R.id.car2ImageProgressBar);
@@ -248,8 +248,8 @@ public class Race extends AppCompatActivity {
                     handler.removeCallbacks(this);
                     return;
                 } else {
-                    // Continuer la mise à jour toutes les 2 secondes
-                    handler.postDelayed(this, 85);
+                    // Continuer la mise à jour toutes les 0.08 secondes
+                    handler.postDelayed(this, 80);
                 }
 
                 totalKmCar1.setText(decimalFormat.format(totaKmPlayer[0]) + "km");
@@ -257,8 +257,8 @@ public class Race extends AppCompatActivity {
             }
         };
 
-        // Démarrer la mise à jour des kilomètres toutes les 0.2 secondes
-        handler.postDelayed(updateKilometersRunnable, 85);
+        // Démarrer la mise à jour des kilomètres toutes les 0.08 secondes
+        handler.postDelayed(updateKilometersRunnable, 80);
     }
 
     private void displayOilPrice() {
@@ -279,12 +279,17 @@ public class Race extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (sharedPreferences.getInt("motogp", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.motogp), "Moto Gp", sharedPreferences.getInt("motogp", 0)));}
+        if (sharedPreferences.getInt("m4", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.m4), "M4", sharedPreferences.getInt("m4", 0)));}
         if (sharedPreferences.getInt("rs6", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.rs6), "Audi Rs6", sharedPreferences.getInt("rs6", 0)));}
         if (sharedPreferences.getInt("urus", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.urus), "Urus", sharedPreferences.getInt("urus", 0)));}
         if (sharedPreferences.getInt("gtr", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.gtr), "Nissan Gtr", sharedPreferences.getInt("gtr", 0)));}
         if (sharedPreferences.getInt("gt500", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.gt500), "Shelby Gt500", sharedPreferences.getInt("gt500", 0)));}
+        if (sharedPreferences.getInt("amg", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.amg), "AMG GT", sharedPreferences.getInt("amg", 0)));}
+        if (sharedPreferences.getInt("gt3", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.gt3), "GT3 RS", sharedPreferences.getInt("gt3", 0)));}
         if (sharedPreferences.getInt("aventador", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.aventador), "Aventador", sharedPreferences.getInt("aventador", 0)));}
         if (sharedPreferences.getInt("buggati", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.buggati), "Bugatti", sharedPreferences.getInt("buggati", 0)));}
+        if (sharedPreferences.getInt("tesla", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.tesla), "Tesla Model X", sharedPreferences.getInt("tesla", 0)));}
+        if (sharedPreferences.getInt("laferrari", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.laferrari), "LaFerrari", sharedPreferences.getInt("laferrari", 0)));}
         if (sharedPreferences.getInt("supra", 0) > 0) {carList.add(new Car(getResources().getDrawable(R.drawable.supra), "Supra", sharedPreferences.getInt("supra", 0)));}
 
         CarAdapter adapter = new CarAdapter(this, carList);
@@ -364,8 +369,8 @@ public class Race extends AppCompatActivity {
         TextView[] carTitles = {findViewById(R.id.car1Title), findViewById(R.id.car2Title), findViewById(R.id.car3Title)};
         ImageView[] carImages = {findViewById(R.id.car1Image), findViewById(R.id.car2Image), findViewById(R.id.car3Image)};
 
-        String[] carNames = {"Moto Gp", "Audi Rs6", "Urus", "Nissan Gtr", "Shelby Gt500", "Aventador", "Bugatti", "Supra"};
-        int[] carImagesResources = {R.drawable.motogp, R.drawable.rs6, R.drawable.urus, R.drawable.gtr, R.drawable.gt500, R.drawable.aventador, R.drawable.buggati, R.drawable.supra};
+        String[] carNames = {"Moto Gp", "M4", "Audi Rs6", "Urus", "Nissan Gtr", "Shelby Gt500", "AMG GT", "GT3 RS", "Aventador", "Bugatti", "Tesla Model X", "LaFerrari", "Supra"};
+        int[] carImagesResources = {R.drawable.motogp, R.drawable.m4, R.drawable.rs6, R.drawable.urus, R.drawable.gtr, R.drawable.gt500, R.drawable.amg, R.drawable.gt3, R.drawable.aventador, R.drawable.buggati, R.drawable.tesla, R.drawable.laferrari, R.drawable.supra};
 
         for (int i = 0; i < carTitles.length; i++) {
             int randomCar = random.nextInt(carNames.length);
@@ -375,14 +380,19 @@ public class Race extends AppCompatActivity {
     }
 
     private float fixSpeed(String carName) {
-        if (carName == "Moto Gp"){return 0.9f;}
-        else if (carName == "Audi Rs6"){return 1.2f;}
-        else if (carName == "Urus"){return 1.5f;}
+        if (carName == "Moto Gp"){return 0.8f;}
+        if (carName == "M4"){return 1.1f;}
+        else if (carName == "Audi Rs6"){return 1.3f;}
+        else if (carName == "Urus"){return 1.6f;}
         else if (carName == "Nissan Gtr"){return 1.8f;}
-        else if (carName == "Shelby Gt500"){return 2.2f;}
-        else if (carName == "Aventador"){return 2.6f;}
-        else if (carName == "Bugatti"){return 3.2f;}
-        else if (carName == "Supra"){return 3.8f;}
+        else if (carName == "Shelby Gt500"){return 2f;}
+        else if (carName == "AMG GT"){return 2.3f;}
+        else if (carName == "GT3 RS"){return 2.6f;}
+        else if (carName == "Aventador"){return 2.9f;}
+        else if (carName == "Bugatti"){return 3.15f;}
+        else if (carName == "Tesla Model X"){return 3.35f;}
+        else if (carName == "LaFerrari"){return 3.65f;}
+        else if (carName == "Supra"){return 3.85f;}
         else {return 0f;}
     }
 

@@ -18,13 +18,17 @@ public class Inventory extends AppCompatActivity  {
         setContentView(R.layout.inventory);
 
         displayArea(R.id.motoGpArea, R.id.motoGPNumber, "Moto GP", "motogp");
-        displayArea(R.id.rs6Area, R.id.rs6Number, "Audi rs6", "rs6");
+        displayArea(R.id.m4Area, R.id.m4Number, "M4", "m4");
         displayArea(R.id.rs6Area, R.id.rs6Number, "Audi rs6", "rs6");
         displayArea(R.id.urusArea, R.id.urusNumber, "Urus", "urus");
         displayArea(R.id.gtrArea, R.id.gtrNumber, "Nissan GTR", "gtr");
         displayArea(R.id.gt500Area, R.id.gt500Number, "Shelby Gt500", "gt500");
+        displayArea(R.id.amgArea, R.id.amgNumber, "AMG Gt", "amg");
+        displayArea(R.id.gt3Area, R.id.gt3Number, "Gt3 RS", "gt3");
         displayArea(R.id.aventadorArea, R.id.aventadorNumber, "Aventador", "aventador");
         displayArea(R.id.buggatiArea, R.id.buggatiNumber, "Buggati Chiron", "buggati");
+        displayArea(R.id.teslaArea, R.id.teslaNumber, "Tesla Model X", "tesla");
+        displayArea(R.id.laferrariArea, R.id.laferrariaNumber, "LaFerrari", "laferrari");
         displayArea(R.id.supraArea, R.id.supraNumber, "Toyota Supra", "supra");
 
         TextView buttonGoHome = findViewById(R.id.GoHomeGarage);

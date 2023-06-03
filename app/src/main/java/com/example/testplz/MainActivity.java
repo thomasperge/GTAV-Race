@@ -119,12 +119,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Item
         if (!sharedPreferences.contains("motogp")) {sharedPreferences.edit().putInt("motogp", 0).apply();}
+        if (!sharedPreferences.contains("m4")) {sharedPreferences.edit().putInt("m4", 0).apply();}
         if (!sharedPreferences.contains("rs6")) {sharedPreferences.edit().putInt("rs6", 0).apply();}
         if (!sharedPreferences.contains("urus")) {sharedPreferences.edit().putInt("urus", 0).apply();}
+        if (!sharedPreferences.contains("gtr")) {sharedPreferences.edit().putInt("gtr", 0).apply();}
+        if (!sharedPreferences.contains("amg")) {sharedPreferences.edit().putInt("amg", 0).apply();}
+        if (!sharedPreferences.contains("gt3")) {sharedPreferences.edit().putInt("gt3", 0).apply();}
         if (!sharedPreferences.contains("gtr")) {sharedPreferences.edit().putInt("gtr", 0).apply();}
         if (!sharedPreferences.contains("gt500")) {sharedPreferences.edit().putInt("gt500", 0).apply();}
         if (!sharedPreferences.contains("aventador")) {sharedPreferences.edit().putInt("aventador", 0).apply();}
         if (!sharedPreferences.contains("buggati")) {sharedPreferences.edit().putInt("buggati", 0).apply();}
+        if (!sharedPreferences.contains("tesla")) {sharedPreferences.edit().putInt("tesla", 0).apply();}
+        if (!sharedPreferences.contains("laferrari")) {sharedPreferences.edit().putInt("laferrari", 0).apply();}
         if (!sharedPreferences.contains("supra")) {sharedPreferences.edit().putInt("supra", 0).apply();}
 
         SharedPreferences.Editor editor = sharedPreferences.edit();

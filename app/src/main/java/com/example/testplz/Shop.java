@@ -31,12 +31,17 @@ public class Shop extends AppCompatActivity {
         });
 
         setupPopupButton(R.id.motoGpButton, "Moto GP", "motogp", 45, 35, 15, 10, 5, 10);
+        setupPopupButton(R.id.m4Button, "M4", "m4", 45, 35, 15, 10, 5, 10);
         setupPopupButton(R.id.rs6Button, "Audi rs6", "rs6", 185, 125, 35, 24, 12, 8);
         setupPopupButton(R.id.urusButton, "Urus", "urus", 380, 145, 60, 34, 30, 19);
         setupPopupButton(R.id.gtrButton, "Nissan GTR", "gtr", 940, 200, 165, 55, 95, 29);
         setupPopupButton(R.id.gt500Button, "Shelby Gt500", "gt500", 1770, 380, 285, 80, 125, 45);
+        setupPopupButton(R.id.amgButton, "AMG GT", "amg", 1770, 380, 285, 80, 125, 45);
+        setupPopupButton(R.id.gt3Button, "GT3 Rs", "gt3", 1770, 380, 285, 80, 125, 45);
         setupPopupButton(R.id.aventadorButton, "Aventador", "aventador", 2790, 570, 595, 100, 225, 52);
         setupPopupButton(R.id.buggatiButton, "Buggati Chiron", "buggati", 3695, 710, 1180, 120, 420, 80);
+        setupPopupButton(R.id.teslaButton, "Tesla Model X", "tesla", 3695, 710, 1180, 120, 420, 80);
+        setupPopupButton(R.id.laferrariButton, "LaFerrari", "laferrari", 3695, 710, 1180, 120, 420, 80);
         setupPopupButton(R.id.supraButton, "Toyota Supra", "supra", 6975, 1250, 1950, 180, 925, 88);
     }
 

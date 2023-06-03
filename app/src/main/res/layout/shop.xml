@@ -554,51 +554,6 @@
 
                 </LinearLayout>
 
-                <!-- Enzo -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/enzoImage"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/enzo" />
-
-                    <TextView
-                        android:id="@+id/enzoTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_weight="1"
-                        android:fontFamily="monospace"
-                        android:text="Ferrari Enzo"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:typeface="monospace" />
-
-                    <TextView
-                        android:id="@+id/enzoButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="#000000"
-                        android:fontFamily="monospace"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="6dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="6dp"
-                        android:text="Buy Now"
-                        android:textColor="#FFFFFF"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:typeface="monospace" />
-                </LinearLayout>
-
                 <!-- LaFerrari -->
                 <LinearLayout
                     android:layout_width="wrap_content"
