@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/game1MainTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="SAN ANDREAS"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <TextView
+            android:id="@+id/game1Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="monospace"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="GARAGE BANK"
+            android:textAlignment="center"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="504dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/view_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/motoGpArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/motoGpImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/motogp" />
+
+                    <TextView
+                        android:id="@+id/motoGpTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Moto GP"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/motoGPNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+                </LinearLayout>
+
+                <LinearLayout
+                android:id="@+id/rs6Area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/rs6Image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/rs6" />
+
+                <TextView
+                    android:id="@+id/rs6Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="Audi Rs6"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/rs6Number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="x0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/urusArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/urusImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/urus" />
+
+                    <TextView
+                        android:id="@+id/urusTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Urus"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/urusNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gtrArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/gtrImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/gtr" />
+
+                    <TextView
+                        android:id="@+id/gtrTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="GTR"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/gtrNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gt500Area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/gt500Image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/gt500" />
+
+                    <TextView
+                        android:id="@+id/gt500Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="GT500"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/gt500Number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aventadorArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/aventadorImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/aventador" />
+
+                    <TextView
+                        android:id="@+id/aventadorTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Aventador"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/aventadorNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/buggatiArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/buggatiImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/buggati" />
+
+                    <TextView
+                        android:id="@+id/buggatiTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Buggati"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/buggatiNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/supraArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/supraImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/supra" />
+
+                    <TextView
+                        android:id="@+id/supraTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="Supra"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+
+                    <TextView
+                        android:id="@+id/supraNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="monospace"
+                        android:text="x0"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/GoHomeGarage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="10dp"
+            android:text="➡️ Go Home"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

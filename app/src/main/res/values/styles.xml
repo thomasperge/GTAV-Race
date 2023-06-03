@@ -1,0 +1,7 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Autres attributs de style -->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+</resources>
