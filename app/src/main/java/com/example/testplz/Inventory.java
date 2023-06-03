@@ -19,6 +19,7 @@ public class Inventory extends AppCompatActivity  {
 
         displayArea(R.id.motoGpArea, R.id.motoGPNumber, "Moto GP", "motogp");
         displayArea(R.id.rs6Area, R.id.rs6Number, "Audi rs6", "rs6");
+        displayArea(R.id.rs6Area, R.id.rs6Number, "Audi rs6", "rs6");
         displayArea(R.id.urusArea, R.id.urusNumber, "Urus", "urus");
         displayArea(R.id.gtrArea, R.id.gtrNumber, "Nissan GTR", "gtr");
         displayArea(R.id.gt500Area, R.id.gt500Number, "Shelby Gt500", "gt500");
