@@ -33,6 +33,8 @@ public class Race extends AppCompatActivity {
     String carSelectedName;
     Drawable carSelectedImage;
 
+    int randomOil;
+
     String carOpponentName;
     Drawable carOpponentImage;
 
@@ -49,6 +51,7 @@ public class Race extends AppCompatActivity {
             launchRaceLayout.setVisibility(View.GONE);
             displaySpinner();
             chooseOpponent();
+            displayOilPrice();
         } else {
             chooseCarLayout.setVisibility(View.GONE);
             launchRaceLayout.setVisibility(View.VISIBLE);
@@ -83,7 +86,6 @@ public class Race extends AppCompatActivity {
             } else {
                 Toast.makeText(Race.this, "Vous n'avez pas choisie de voiture", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 
@@ -92,6 +94,9 @@ public class Race extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("oil", sharedPreferences.getInt("oil", 0) - randomOil);
+        editor.apply();
 
         LinearLayout displayStuff = findViewById(R.id.winLoseStuff);
         displayStuff.setVisibility(View.GONE);
@@ -104,7 +109,7 @@ public class Race extends AppCompatActivity {
         });
 
         Random random = new Random();
-        int totalKm = random.nextInt(55) + 58;
+        int totalKm = random.nextInt(55) + 125;
 
         ImageView car1Image = findViewById(R.id.car1ImageProgressBar);
         ImageView car2Image = findViewById(R.id.car2ImageProgressBar);
@@ -203,7 +208,7 @@ public class Race extends AppCompatActivity {
                         buttonGoHomeRace.setVisibility(View.VISIBLE);
 
                         float randomCash = (random.nextInt(38) + 38) * multiplicator;
-                        float randomOil = (random.nextInt(20) + 20) * multiplicator;
+                        float randomOil = (random.nextInt(11) + 10) * multiplicator;
                         float randomFerrari = (random.nextInt(4) + 4) * multiplicator;
 
                         cashValueWinLose.setText("" + (int) randomCash);
@@ -244,7 +249,7 @@ public class Race extends AppCompatActivity {
                     return;
                 } else {
                     // Continuer la mise à jour toutes les 2 secondes
-                    handler.postDelayed(this, 200);
+                    handler.postDelayed(this, 85);
                 }
 
                 totalKmCar1.setText(decimalFormat.format(totaKmPlayer[0]) + "km");
@@ -253,9 +258,20 @@ public class Race extends AppCompatActivity {
         };
 
         // Démarrer la mise à jour des kilomètres toutes les 0.2 secondes
-        handler.postDelayed(updateKilometersRunnable, 125);
+        handler.postDelayed(updateKilometersRunnable, 85);
     }
 
+    private void displayOilPrice() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Random random = new Random();
+
+        int oilValue = sharedPreferences.getInt("oil", 0);
+        double randomPercentage = 0.01 * (1 + random.nextDouble() * 5);
+        randomOil = (int) (oilValue * randomPercentage);
+
+        TextView test = findViewById(R.id.oilPrice);
+        test.setText("Price : " + randomOil + " oil");
+    }
 
     private void displaySpinner() {
         Spinner carSpinner = findViewById(R.id.carSpinner);
@@ -348,7 +364,7 @@ public class Race extends AppCompatActivity {
         TextView[] carTitles = {findViewById(R.id.car1Title), findViewById(R.id.car2Title), findViewById(R.id.car3Title)};
         ImageView[] carImages = {findViewById(R.id.car1Image), findViewById(R.id.car2Image), findViewById(R.id.car3Image)};
 
-        String[] carNames = {"Moto Gp", "Audi Rs6", "Urus", "Nissan Gtr", "Shelby Gt500", "Aventador", "Buggati", "Supra"};
+        String[] carNames = {"Moto Gp", "Audi Rs6", "Urus", "Nissan Gtr", "Shelby Gt500", "Aventador", "Bugatti", "Supra"};
         int[] carImagesResources = {R.drawable.motogp, R.drawable.rs6, R.drawable.urus, R.drawable.gtr, R.drawable.gt500, R.drawable.aventador, R.drawable.buggati, R.drawable.supra};
 
         for (int i = 0; i < carTitles.length; i++) {

@@ -31,13 +31,13 @@ public class Shop extends AppCompatActivity {
         });
 
         setupPopupButton(R.id.motoGpButton, "Moto GP", "motogp", 45, 35, 15, 10, 5, 10);
-        setupPopupButton(R.id.rs6Button, "Audi rs6", "rs6", 175, 125, 35, 24, 10, 8);
-        setupPopupButton(R.id.urusButton, "Urus", "urus", 280, 145, 60, 34, 24, 19);
-        setupPopupButton(R.id.gtrButton, "Nissan GTR", "gtr", 640, 200, 95, 55, 50, 29);
-        setupPopupButton(R.id.gt500Button, "Shelby Gt500", "gt500", 1170, 380, 160, 80, 78, 45);
-        setupPopupButton(R.id.aventadorButton, "Aventador", "aventador", 1790, 570, 200, 100, 98, 52);
-        setupPopupButton(R.id.buggatiButton, "Buggati Chiron", "buggati", 2695, 710, 260, 120, 170, 80);
-        setupPopupButton(R.id.supraButton, "Toyota Supra", "supra", 3975, 1250, 300, 180, 168, 88);
+        setupPopupButton(R.id.rs6Button, "Audi rs6", "rs6", 185, 125, 35, 24, 12, 8);
+        setupPopupButton(R.id.urusButton, "Urus", "urus", 380, 145, 60, 34, 30, 19);
+        setupPopupButton(R.id.gtrButton, "Nissan GTR", "gtr", 940, 200, 165, 55, 95, 29);
+        setupPopupButton(R.id.gt500Button, "Shelby Gt500", "gt500", 1770, 380, 285, 80, 125, 45);
+        setupPopupButton(R.id.aventadorButton, "Aventador", "aventador", 2790, 570, 595, 100, 225, 52);
+        setupPopupButton(R.id.buggatiButton, "Buggati Chiron", "buggati", 3695, 710, 1180, 120, 420, 80);
+        setupPopupButton(R.id.supraButton, "Toyota Supra", "supra", 6975, 1250, 1950, 180, 925, 88);
     }
 
     private void setupPopupButton(int buttonId, final String title, final String idVehicle, final int cashMin, final int cashMax, final int oilMin, final int oilMax, final int ferrariMin, final int ferrariMax) {
