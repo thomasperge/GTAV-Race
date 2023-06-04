@@ -87,6 +87,12 @@ public class Race extends AppCompatActivity {
                 Toast.makeText(Race.this, "Vous n'avez pas choisie de voiture", Toast.LENGTH_SHORT).show();
             }
         });
+
+        TextView resetCarButton = findViewById(R.id.resetCar);
+        resetCarButton.setOnClickListener(v -> {
+            resetRaceRandomCar(true);
+            chooseOpponent();
+        });
     }
 
     private void launchRace(Drawable imagePLayer, Drawable imageOpponent) {
@@ -197,7 +203,7 @@ public class Race extends AppCompatActivity {
                 if (totaKmPlayer[0] >= totalKm || totaKmOpponent[0] >= totalKm) {
                     float multiplicator = reward(carSelectedName, carOpponentName, totaKmPlayer[0], totaKmOpponent[0]);
                     if (multiplicator == 0) {multiplicator = 1;};
-                    resetRaceRandomCar();
+                    resetRaceRandomCar(false);
 
                     if (totaKmPlayer[0] >= totalKm){
                         // Player Win
@@ -208,9 +214,9 @@ public class Race extends AppCompatActivity {
                         displayStuff.setVisibility(View.VISIBLE);
                         buttonGoHomeRace.setVisibility(View.VISIBLE);
 
-                        float randomCash = (random.nextInt(38) + 38) * multiplicator;
-                        float randomOil = (random.nextInt(11) + 10) * multiplicator;
-                        float randomFerrari = (random.nextInt(4) + 4) * multiplicator;
+                        float randomCash = (random.nextInt(15) + 32) * multiplicator;
+                        float randomOil = (random.nextInt(10) + 15) * multiplicator;
+                        float randomFerrari = (random.nextInt(5) + 3) * multiplicator;
 
                         cashValueWinLose.setText("" + (int) randomCash);
                         oilValueWinLose.setText("" + (int) randomOil);
@@ -231,9 +237,9 @@ public class Race extends AppCompatActivity {
                         displayStuff.setVisibility(View.VISIBLE);
                         buttonGoHomeRace.setVisibility(View.VISIBLE);
 
-                        float randomCash = (random.nextInt(40) + 40) * multiplicator;
-                        float randomOil = (random.nextInt(25) + 25) * multiplicator;
-                        float randomFerrari = (random.nextInt(5) + 5) * multiplicator;
+                        float randomCash = (random.nextInt(15) + 37) * multiplicator;
+                        float randomOil = (random.nextInt(10) + 18) * multiplicator;
+                        float randomFerrari = (random.nextInt(4) + 5) * multiplicator;
 
                         cashValueWinLose.setText("" + (int) randomCash);
                         oilValueWinLose.setText("" + (int) randomOil);
@@ -267,7 +273,7 @@ public class Race extends AppCompatActivity {
         Random random = new Random();
 
         int oilValue = sharedPreferences.getInt("oil", 0);
-        double randomPercentage = 0.01 * (1 + random.nextDouble() * 5);
+        double randomPercentage = 0.01 * (2 + random.nextDouble() * 5);
         randomOil = (int) (oilValue * randomPercentage);
 
         TextView test = findViewById(R.id.oilPrice);
@@ -435,12 +441,16 @@ public class Race extends AppCompatActivity {
         }
     }
 
-    public void resetRaceRandomCar() {
+    public void resetRaceRandomCar(boolean price) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         sharedPreferences.edit().putString("car1Race", "undefined").apply();
         sharedPreferences.edit().putString("car2Race", "undefined").apply();
         sharedPreferences.edit().putString("car3Race", "undefined").apply();
+
+        if (price) {
+            sharedPreferences.edit().putInt("oil", sharedPreferences.getInt("oil", 0) - randomOil).apply();
+        }
     }
 
     private float fixSpeed(String carName) {
@@ -464,24 +474,33 @@ public class Race extends AppCompatActivity {
         float carPlayerValue = fixSpeed(carNamePlayer);
         float carOpponentValue = fixSpeed(carNameOpponent);
 
+        float strengthDifference = carPlayerValue - carOpponentValue;
+
         if (totalKmPlayer > totalKmOpponent) {
             // Player Win
-            if (carPlayerValue > carOpponentValue) {
-                return (carPlayerValue * carOpponentValue) - (carPlayerValue/2.85f);
-            } else if (carPlayerValue == carOpponentValue) {
-                return (carPlayerValue * carOpponentValue) - (carPlayerValue/2.5f);
+            if (strengthDifference > 0) {
+                // Player's car is stronger
+                return (carPlayerValue + carOpponentValue) * 2.5f;
+            } else if (strengthDifference < 0) {
+                // Player's car is weaker
+                return (carPlayerValue + carOpponentValue) * 3.6f;
             } else {
-                return (carPlayerValue * carOpponentValue) * 1.75f;
+                // Both cars have equal strength
+                return (carPlayerValue + carOpponentValue) * 3f;
             }
         } else {
             // Player Lose
-            if (carPlayerValue > carOpponentValue) {
-                return (((carPlayerValue * carOpponentValue) - (carPlayerValue/4.5f)) * -1) - (carPlayerValue*2.5f);
-            } else if (carPlayerValue == carOpponentValue) {
-                return (((carPlayerValue * carOpponentValue) - (carPlayerValue/2.5f)) * -1);
+            if (strengthDifference > 0) {
+                // Player's car is stronger
+                return -(carOpponentValue + carPlayerValue) * 3.9f;
+            } else if (strengthDifference < 0) {
+                // Player's car is weaker
+                return -(carOpponentValue + carPlayerValue) * 2.4f;
             } else {
-                return (((carPlayerValue * carOpponentValue) + carOpponentValue) * -1) - (carPlayerValue);
+                // Both cars have equal strength
+                return -(carPlayerValue + carOpponentValue) * 3f;
             }
         }
     }
+
 }

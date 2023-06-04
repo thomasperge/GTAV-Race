@@ -30,9 +30,9 @@ public class Shop extends AppCompatActivity {
             }
         });
 
-        setupPopupButton(R.id.motoGpButton, "Moto GP", "motogp", 45, 35, 15, 10, 5, 10);
-        setupPopupButton(R.id.m4Button, "M4", "m4", 45, 35, 15, 10, 5, 10);
-        setupPopupButton(R.id.rs6Button, "Audi rs6", "rs6", 185, 125, 35, 24, 12, 8);
+        setupPopupButton(R.id.motoGpButton, "Moto GP", "motogp", 45, 30, 15, 10, 5, 10);
+        setupPopupButton(R.id.m4Button, "M4", "m4", 75, 35, 15, 10, 5, 10);
+        setupPopupButton(R.id.rs6Button, "Audi rs6", "rs6", 155, 125, 35, 24, 12, 8);
         setupPopupButton(R.id.urusButton, "Urus", "urus", 380, 145, 60, 34, 30, 19);
         setupPopupButton(R.id.gtrButton, "Nissan GTR", "gtr", 940, 200, 165, 55, 95, 29);
         setupPopupButton(R.id.gt500Button, "Shelby Gt500", "gt500", 1770, 380, 285, 80, 125, 45);
