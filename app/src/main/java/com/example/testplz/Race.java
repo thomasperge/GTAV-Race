@@ -197,9 +197,10 @@ public class Race extends AppCompatActivity {
                 if (totaKmPlayer[0] >= totalKm || totaKmOpponent[0] >= totalKm) {
                     float multiplicator = reward(carSelectedName, carOpponentName, totaKmPlayer[0], totaKmOpponent[0]);
                     if (multiplicator == 0) {multiplicator = 1;};
+                    resetRaceRandomCar();
 
                     if (totaKmPlayer[0] >= totalKm){
-                        // Opponent Win
+                        // Player Win
                         TextView textLose = findViewById(R.id.winString);
                         textLose.setText("You Win !");
                         textLose.setTextColor(Color.GREEN);
@@ -365,6 +366,11 @@ public class Race extends AppCompatActivity {
 
     private void chooseOpponent() {
         Random random = new Random();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (!sharedPreferences.contains("car1Race")) {sharedPreferences.edit().putString("car1Race", "undefined").apply();}
+        if (!sharedPreferences.contains("car2Race")) {sharedPreferences.edit().putString("car2Race", "undefined").apply();}
+        if (!sharedPreferences.contains("car3Race")) {sharedPreferences.edit().putString("car3Race", "undefined").apply();}
 
         TextView[] carTitles = {findViewById(R.id.car1Title), findViewById(R.id.car2Title), findViewById(R.id.car3Title)};
         ImageView[] carImages = {findViewById(R.id.car1Image), findViewById(R.id.car2Image), findViewById(R.id.car3Image)};
@@ -372,11 +378,69 @@ public class Race extends AppCompatActivity {
         String[] carNames = {"Moto Gp", "M4", "Audi Rs6", "Urus", "Nissan Gtr", "Shelby Gt500", "AMG GT", "GT3 RS", "Aventador", "Bugatti", "Tesla Model X", "LaFerrari", "Supra"};
         int[] carImagesResources = {R.drawable.motogp, R.drawable.m4, R.drawable.rs6, R.drawable.urus, R.drawable.gtr, R.drawable.gt500, R.drawable.amg, R.drawable.gt3, R.drawable.aventador, R.drawable.buggati, R.drawable.tesla, R.drawable.laferrari, R.drawable.supra};
 
-        for (int i = 0; i < carTitles.length; i++) {
-            int randomCar = random.nextInt(carNames.length);
-            carTitles[i].setText(carNames[randomCar]);
-            carImages[i].setImageResource(carImagesResources[randomCar]);
+        // == Set local variable Car ==
+        if (!sharedPreferences.getString("car1Race", "undefined").equals("undefined") && !sharedPreferences.getString("car2Race", "undefined").equals("undefined") && !sharedPreferences.getString("car3Race", "undefined").equals("undefined")) {
+            String car1Name = sharedPreferences.getString("car1Race", "undefined");
+            String car2Name = sharedPreferences.getString("car1Race", "undefined");
+            String car3Name = sharedPreferences.getString("car3Race", "undefined");
+            int car1Index = -1;
+            int car2Index = -1;
+            int car3Index = -1;
+
+            // Car  1:
+            for (int i = 0; i < carNames.length; i++) {
+                if (carNames[i].equals(car1Name)) {
+                    car1Index = i;
+                    break;
+                }
+            }
+            if (car1Index != -1) {
+                carTitles[0].setText(car1Name);
+                carImages[0].setImageResource(carImagesResources[car1Index]);
+            }
+
+            // Car 2 :
+            for (int i = 0; i < carNames.length; i++) {
+                if (carNames[i].equals(car2Name)) {
+                    car2Index = i;
+                    break;
+                }
+            }
+            if (car2Index != -1) {
+                carTitles[1].setText(car2Name);
+                carImages[1].setImageResource(carImagesResources[car2Index]);
+            }
+
+            // Car 3 :
+            for (int i = 0; i < carNames.length; i++) {
+                if (carNames[i].equals(car3Name)) {
+                    car3Index = i;
+                    break;
+                }
+            }
+            if (car3Index != -1) {
+                carTitles[2].setText(car3Name);
+                carImages[2].setImageResource(carImagesResources[car3Index]);
+            }
+        } else {
+            // == Set Random Car ==
+            for (int i = 0; i < carTitles.length; i++) {
+                int randomCar = random.nextInt(carNames.length);
+                carTitles[i].setText(carNames[randomCar]);
+                String carKey = "car" + (i + 1) + "Race";
+                sharedPreferences.edit().putString(carKey, carNames[randomCar]).apply();
+
+                carImages[i].setImageResource(carImagesResources[randomCar]);
+            }
         }
+    }
+
+    public void resetRaceRandomCar() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        sharedPreferences.edit().putString("car1Race", "undefined").apply();
+        sharedPreferences.edit().putString("car2Race", "undefined").apply();
+        sharedPreferences.edit().putString("car3Race", "undefined").apply();
     }
 
     private float fixSpeed(String carName) {
